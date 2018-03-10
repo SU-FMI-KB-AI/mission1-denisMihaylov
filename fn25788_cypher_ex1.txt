@@ -20,3 +20,15 @@ MATCH (you {name:"Denis"})
 MATCH (expert)-[:WORKED_WITH]->(db:Database {name:"Neo4j"})
 MATCH path = shortestPath( (you)-[:FRIEND*..5]-(expert) )
 RETURN db,expert,path;
+
+//Knowledge Base Recommendations
+MATCH (ee:Actor)
+where ee.name="Dan Hanlon"
+RETURN ee;
+
+MATCH (claude:Actor)-[:ACTED_IN]-(movies)
+WHERE claude.name="Claude Rains"
+RETURN movies;
+
+MATCH (ee:Actor)
+RETURN ee;
